@@ -3,63 +3,18 @@ from bs4 import BeautifulSoup
 import re
 import csv
 import pandas as pd
+import dataframe_image as dfi
 
 url = "http://www.dota2protracker.com/hero/"
 
-class WinrateCollect():
-    def __init__(self, pos, file):
-        self.pos = pos
-        self.file = file
-
-    def get_wr(self, hero):
-        r = requests.get(url + hero, timeout = 10 ,verify=False).text
-        #print(r)
-        soup = BeautifulSoup(r)
-
-        if self.pos == 1:
-            id = "role_Carry"
-        elif self.pos == 3:
-            id = "role_Offlane"
-        elif self.pos == 5:
-            id = "role_Support (5)"
-        else:
-            raise IndexError
-        f1 = soup.find("div", {"id": id})
-        f2 = f1.find("div", {"class": "role_box_left"})
-        text = f2.text
-        nums = re.findall("\d+\.\d+", text)
-        if float(nums[0]) > 30:
-            wr = float(nums[1])
-        else:
-            wr = 0
-        return wr
-
-    def print_sorted(self, d):
-        a = dict(sorted(d.items(), key=lambda item: item[1], reverse=True))
-        print(a)
-        with open("res.csv", "a") as f:
-            f.write(str(a) + "\n")
-
-    def wr_pos(self):
-        with open(self.file) as csvfile:
-            playable = dict()
-            unplayable = dict()
-            readCSV = csv.reader(csvfile, delimiter=',')
-            for row in readCSV:
-                wr = self.get_wr(row[0])
-                if row[1] == '1':
-                    playable[row[0]] = wr
-                else:
-                    unplayable[row[0]] = wr
-            self.print_sorted(playable)
-            self.print_sorted(unplayable)
-
 class WinrateCollect2():
-    def __init__(self, file):
-        self.file = file
+    def __init__(self):
+        self.file = "heroes_page_list.csv"
         cols = ['hero', 'g', 'wr', 'pos']
         self.stat = pd.DataFrame(columns=cols)
 
+        cols = ['hero', 'matchup', 'w', 'l']
+        self.matchups = pd.DataFrame(columns=cols)
 
     def role_to_nums(self, all_roles, role):
         f2 = all_roles.find("div", {"id": role})
@@ -77,14 +32,56 @@ class WinrateCollect2():
             row = {'hero': hero, 'g': g, 'wr': wr, 'pos': pos}
             self.stat = self.stat.append(row, ignore_index=True)
 
+    def add_to_matchups(self, hero, matchup, w, l):
+        try:
+            if matchup:
+                w = int(w)
+                l = int(l)
+                row = {'hero': hero, 'matchup': matchup, 'w': w, 'l': l}
+                self.matchups = self.matchups.append(row, ignore_index=True)
+        except:
+            print('error: {} vs {}'.format(hero, matchup))
+
+    def is_integer(self, v):
+        try:
+            int(v)
+        except:
+            return False
+        return True
 
     def get_wr(self, hero):
         r = requests.get(url + hero, timeout = 10 ,verify=False).text
         #print(r)
-        soup = BeautifulSoup(r)
+        soup = BeautifulSoup(r, features="html.parser")
+
+        # find matchups
+        f1 = soup.find("div", {"id": "table-heroes"})
+        matchups = re.split(r'\s{2,}', f1.text.strip())
+        le = len(matchups)
+        flag = True
+        i = 0
+        while i < len(matchups):
+            matchup = matchups[i]
+            if i + 2 < len(matchups) and self.is_integer(matchups[i + 2]):
+                w = int(matchups[i + 1])
+                l = int(matchups[i + 2])
+                flag = w > l
+            else:
+                if flag:
+                    w = int(matchups[i + 1])
+                    l = 0
+                else:
+                    w = 0
+                    l = int(matchups[i + 1])
+                i -= 1
+            self.add_to_matchups(hero, matchup, w, l)
+            i += 3
+
+        # find matches count
         f1 = soup.find("div", {"class": "hero-stats-descr"})
         matches = int(re.findall("\d+", f1.text)[0])
 
+        # find winrate and games for each role
         f1 = soup.find("div", {"id": "all_roles"})
 
         nums1 = self.role_to_nums(f1, "role_Carry")
@@ -112,7 +109,6 @@ class WinrateCollect2():
 
     def wr_pos(self):
         with open(self.file) as csvfile:
-
             readCSV = csv.reader(csvfile, delimiter=',')
             for row in readCSV:
                 self.get_wr(row[0])
@@ -122,18 +118,28 @@ class WinrateCollect2():
         df = df.sort_values(by=['g', 'wr'],ascending=False)
         return df
 
+    def df_fix_matchups(self):
+        self.matchups['hero'] = self.matchups['hero'].str.replace('%20', ' ')
+        self.matchups = self.matchups.astype({'w': 'int32'})
+        self.matchups = self.matchups.astype({'l': 'int32'})
+
+    def df_fix_positions(self):
+        self.stat['hero'] = self.stat['hero'].str.replace('%20', ' ')
+        self.stat = self.stat.astype({'g': 'int32'})
+
+    def update_hero_main_position(self):
+        df_tmp = self.stat.sort_values(['hero', 'g'], ascending=[True, False]).drop_duplicates(['hero']).set_index(
+            'hero').pos
+        df_tmp.to_pickle("main_heroes_position")
+
     def update_stat(self):
         self.wr_pos()
-        self.stat.to_pickle("data")
-        #self.stat = pd.read_pickle("data")
+        self.df_fix_positions()
+        self.df_fix_matchups()
+        self.update_hero_main_position()
 
+        self.stat.to_pickle("position_stats_data")
+        self.matchups.to_pickle("matchup_stats_data")
 
-
-#pos1 = WinrateCollect(pos=1, file="pos1.csv")
-#pos1.wr_pos()
-
-#pos5 = WinrateCollect(pos=5, file="pos5.csv")
-#pos5.wr_pos()
-
-#pos3 = WinrateCollect(pos=3, file="pos3.csv")
-#pos3.wr_pos()
+#wc2 = WinrateCollect2("heroes.csv")
+#wc2.wr_pos()
