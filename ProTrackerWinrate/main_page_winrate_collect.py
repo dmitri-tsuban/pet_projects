@@ -12,10 +12,9 @@ class WinRateCollect():
         self.cols = ['hero', 'g', 'wr']
         self.hero_pos = pd.read_pickle("main_heroes_position")
 
-    def add_to_mainpage(self, hero, nums):
+    def add_to_mainpage(self, hero, wr1, g1):
         try:
             if hero:
-                g1, wr1 = nums.split()
                 g = int(g1)
                 wr = float(wr1[:-1])
                 row = {'hero': hero, 'g': g, 'wr': wr}
@@ -28,15 +27,15 @@ class WinRateCollect():
         #print(r)
         soup = BeautifulSoup(r, features="html.parser")
 
-        f1 = soup.find("table", {"id": "table_id"})
+        f1 = soup.find("table", {"class": "alx_table clearfix"})
 
         self.main_page = pd.DataFrame(columns=self.cols)
         hero_info = re.split(r'\s{2,}', f1.text.strip().replace('\n', ' '))
         l = len(hero_info)
-        i = 1
+        i = 3
         while i < l:
-            self.add_to_mainpage(hero_info[i], hero_info[i+1])
-            i += 2
+            self.add_to_mainpage(hero_info[i], hero_info[i+1], hero_info[i+2])
+            i += 3
 
         self.main_page = self.main_page.set_index('hero')
         self.main_page = pd.concat([self.main_page, self.hero_pos], axis=1, join="inner")

@@ -11,6 +11,7 @@ center_wr = 1
 # .style.hide_index()
 def tierS(pos):
     # 5% - outliers
+    pos = str(pos)
     min_g = df.loc[(df['pos'] == pos)]['g'].max() / 10
     df1 = df.loc[(df['pos'] == pos) & (df['g'] >= min_g)]
     df1['r'] = 3 + ((df1.g ** (2 / 3)) * (2 * df1.wr / 100 - 1) / 10)

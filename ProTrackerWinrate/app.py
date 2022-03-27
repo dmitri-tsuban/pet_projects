@@ -24,11 +24,10 @@ class WinrateCollect2():
             return nums[0], nums[1]
         return None
 
-    def add_to_stats(self, hero, nums, pos, matches):
-        if nums:
-            g1, wr1 = nums
-            g = int(round(matches * float(g1) / 100))
-            wr = float(wr1)
+    def add_to_stats(self, hero, g1, wr1, pos):
+        if g1:
+            g = int(g1)
+            wr = float(wr1[:-1])
             row = {'hero': hero, 'g': g, 'wr': wr, 'pos': pos}
             self.stat = self.stat.append(row, ignore_index=True)
 
@@ -48,12 +47,21 @@ class WinrateCollect2():
         except:
             return False
         return True
+    def role_to_pos(self, role):
+        if role == 'Mid':
+            return '2'
+        if role == 'Offlane':
+            return '3'
+        if role == 'Carry':
+            return '1'
+        return 0
 
     def get_wr(self, hero):
         r = requests.get(url + hero, timeout = 10 ,verify=False).text
         #print(r)
         soup = BeautifulSoup(r, features="html.parser")
 
+        '''
         # find matchups
         f1 = soup.find("div", {"id": "table-heroes"})
         matchups = re.split(r'\s{2,}', f1.text.strip())
@@ -76,30 +84,20 @@ class WinrateCollect2():
                 i -= 1
             self.add_to_matchups(hero, matchup, w, l)
             i += 3
-
-        # find matches count
-        f1 = soup.find("div", {"class": "hero-stats-descr"})
-        matches = int(re.findall("\d+", f1.text)[0])
+        '''
 
         # find winrate and games for each role
-        f1 = soup.find("div", {"id": "all_roles"})
-
-        nums1 = self.role_to_nums(f1, "role_Carry")
-        self.add_to_stats(hero, nums1, 1, matches)
-
-        nums2 = self.role_to_nums(f1, "role_Mid")
-        self.add_to_stats(hero, nums2, 2, matches)
-
-        nums3 = self.role_to_nums(f1, "role_Offlane")
-        self.add_to_stats(hero, nums3, 3, matches)
-
-        nums4 = self.role_to_nums(f1, "role_Support (4)")
-        self.add_to_stats(hero, nums4, 4, matches)
-
-        nums5 = self.role_to_nums(f1, "role_Support (5)")
-        self.add_to_stats(hero, nums5, 5, matches)
-
-        #print(self.stat.head(10))
+        f1 = soup.find_all("div", {"class": "content-box"})
+        for el in f1[1:]:
+            info = el.text.split()
+            ind = info.index("matches:")
+            if info[0] == 'Support':
+                pos = info[1][1]
+            else:
+                pos = self.role_to_pos(info[0])
+            wr = info[ind - 1]
+            g = info[ind + 4]
+            self.add_to_stats(hero, wr, g, pos)
 
     def print_sorted(self, d):
         a = dict(sorted(d.items(), key=lambda item: item[1], reverse=True))
