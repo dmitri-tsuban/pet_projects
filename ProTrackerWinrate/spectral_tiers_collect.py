@@ -6,11 +6,11 @@ import dataframe_image as dfi
 
 
 # depends only on main hero position from personal hero stats
-class WinRateCollect():
+class SpectralWinRateCollect():
     def __init__(self):
-        self.url = "http://www.dota2protracker.com"
+        self.url = "https://stats.spectral.gg/lrg2/?league=imm_ranked_meta_last_7&mod=heroes-positions-position_0.3"
         self.cols = ['hero', 'g', 'wr']
-        self.hero_pos = pd.read_pickle("main_heroes_position")
+        #self.hero_pos = pd.read_pickle("main_heroes_position")
 
     def add_to_mainpage(self, hero, nums):
         try:
@@ -28,8 +28,9 @@ class WinRateCollect():
         #print(r)
         soup = BeautifulSoup(r, features="html.parser")
 
-        f1 = soup.find("table", {"id": "table_id"})
+        f1 = soup.find("table", {"id": "heroes-positions-0-3"})
 
+        print(f1.text)
         self.main_page = pd.DataFrame(columns=self.cols)
         hero_info = re.split(r'\s{2,}', f1.text.strip().replace('\n', ' '))
         l = len(hero_info)
@@ -53,27 +54,24 @@ class WinRateCollect():
         df = df.assign(
             qant_circle=(df['g_qant'] - center_g) ** 2 + (df['wr_qant'] - center_wr) ** 2)
         df = df.assign(rank=1 - df['qant_circle'])
-        df = df.assign(r = 3 + ((df['g'] ** (2 / 3)) * (2 * df['wr'] / 100 - 1) / 10))
-        df_top = df.sort_values(by=['r'], ascending=False)[['g', 'wr', 'rank', 'r', 'pos']]
-        df_top = df_top.loc[df_top['r'] > 2.75]
+        df_top = df.sort_values(by=['qant_circle'], ascending=True)[['g', 'wr', 'rank']]
+        df_top = df_top.loc[df_top['rank'] > 0.49]
         return df_top
 
     def show_top(self):
         self.main_page = pd.read_pickle("main_page_data")
         p1 = self.main_page.loc[(self.main_page['pos'] == 1)]
-        p2 = self.main_page.loc[(self.main_page['pos'] == 2)]
         p3 = self.main_page.loc[(self.main_page['pos'] == 3)]
         p45 = self.main_page.loc[(self.main_page['pos'] == 4) | (self.main_page['pos'] == 5)]
 
         p1_rank = self.do_ranking(p1)
-        p2_rank = self.do_ranking(p2)
         p3_rank = self.do_ranking(p3)
         p45_rank = self.do_ranking(p45)
-        p_rank = self.do_ranking(self.main_page)
-        
 
         p1_rank.dfi.export('C:/Users/HP17/Desktop/d2/main_page/pos1.png')
-        p2_rank.dfi.export('C:/Users/HP17/Desktop/d2/main_page/pos2.png')
         p3_rank.dfi.export('C:/Users/HP17/Desktop/d2/main_page/pos3.png')
         p45_rank.dfi.export('C:/Users/HP17/Desktop/d2/main_page/pos45.png')
-        p_rank.dfi.export('C:/Users/HP17/Desktop/d2/main_page/meta.png')
+
+
+swc = SpectralWinRateCollect()
+swc.update_main()

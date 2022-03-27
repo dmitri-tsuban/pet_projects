@@ -110,8 +110,12 @@ class WinrateCollect2():
     def wr_pos(self):
         with open(self.file) as csvfile:
             readCSV = csv.reader(csvfile, delimiter=',')
+            i = 0
             for row in readCSV:
                 self.get_wr(row[0])
+                if i % 10 == 0:
+                    print(i)
+                i+=1
 
     def get_stat_by_pos(self, pos):
         df = self.stat.loc[(self.stat['pos'] == pos)]
@@ -141,5 +145,5 @@ class WinrateCollect2():
         self.stat.to_pickle("position_stats_data")
         self.matchups.to_pickle("matchup_stats_data")
 
-#wc2 = WinrateCollect2("heroes.csv")
+#wc2 = WinrateCollect2()
 #wc2.wr_pos()

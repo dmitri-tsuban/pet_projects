@@ -25,8 +25,11 @@ def get_matchup(enemy_heroes):
     matchup = matchup.assign(lr_qant = matchup['lr'].rank(method='max', pct=True))
     matchup = matchup.assign(qant_circle = (matchup['g_qant']-center_g)**2 + (matchup['lr_qant']-center_lr)**2)
     matchup = matchup.assign(rank = 1 - matchup['qant_circle'])
-    df_top = matchup.sort_values(by=['qant_circle'],ascending=True)[['g', 'lr']]
+    matchup = matchup.assign(r = 3 + ((matchup['g'] ** (2 / 3)) * (2 * matchup['lr'] - 1) / 10))
+    df_top = matchup.loc[matchup['qant_circle'] <= 0.9]
+    df_top = df_top.sort_values(by=['r','lr'],ascending=[False,False])[['g', 'lr','r']]
     df_top = df_top.loc[df_top['lr'] > 0.49]
+
     return df_top
 
 df_tmp = pd.read_pickle("main_heroes_position")

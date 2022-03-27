@@ -1,0 +1,124 @@
+,name,pre,pos
+0,Spectre,91.12,15
+1,Anti-Mage,89.84,15
+2,Slark,86.44,15
+3,Juggernaut,85.48,15
+4,Terrorblade,85.48,15
+5,Phantom Lancer,84.43,15
+6,Luna,81.8,15
+7,Sven,79.65,15
+8,Phantom Assassin,76.08,15
+9,Oracle,72.99,15
+10,Disruptor,72.95,15
+11,Drow Ranger,72.51,15
+12,Witch Doctor,72.22,15
+13,Crystal Maiden,71.16,15
+14,Troll Warlord,71.07,15
+15,Warlock,70.15,15
+16,Dazzle,69.61,15
+17,Lifestealer,69.29,15
+18,Ursa,69.07,15
+19,Shadow Shaman,68.87,15
+20,Ancient Apparition,67.97,15
+21,Gyrocopter,67.89,15
+22,Bane,67.64,15
+23,Lion,67.24,15
+24,Faceless Void,66.98,15
+25,Lich,64.73,15
+26,Naga Siren,64.7,15
+27,Morphling,63.96,15
+28,Jakiro,63.06,15
+29,Wraith King,62.44,15
+30,Shadow Demon,61.71,15
+31,Winter Wyvern,61.36,15
+32,Ogre Magi,58.85,15
+33,Vengeful Spirit,58.82,15
+34,Medusa,57.97,15
+35,Grimstroke,56.95,15
+36,Chaos Knight,56.32,15
+37,Io,55.52,15
+38,Keeper of the Light,51.54,15
+39,Omniknight,51.19,15
+40,Rubick,49.01,15
+41,Treant Protector,48.65,15
+42,Monkey King,45.51,15
+43,Silencer,43.03,15
+45,Clinkz,39.73,15
+46,Lycan,39.62,15
+53,Chen,31.69,15
+55,Bloodseeker,29.0,15
+0,Storm Spirit,91.92,2
+1,Shadow Fiend,90.53,2
+2,Tinker,89.42,2
+3,Templar Assassin,87.9,2
+4,Invoker,81.9,2
+5,Outworld Destroyer,79.45,2
+6,Void Spirit,75.99,2
+7,Ember Spirit,72.76,2
+8,Queen of Pain,72.35,2
+9,Puck,70.73,2
+10,Death Prophet,65.02,2
+11,Meepo,64.69,2
+12,Zeus,64.29,2
+13,Arc Warden,63.58,2
+14,Sniper,54.3,2
+15,Viper,52.0,2
+16,Alchemist,50.92,2
+17,Lina,46.44,2
+18,Huskar,45.5,2
+20,Leshrac,43.01,2
+21,Kunkka,42.81,2
+22,Visage,40.16,2
+23,Razor,37.18,2
+0,Centaur Warrunner,88.99,34
+1,Mars,88.62,34
+2,Underlord,86.88,34
+3,Tidehunter,85.7,34
+4,Bristleback,85.33,34
+5,Dark Seer,85.11,34
+6,Clockwerk,79.85,34
+7,Timbersaw,79.77,34
+8,Slardar,77.09,34
+9,Pangolier,76.85,34
+10,Dawnbreaker,76.76,34
+11,Beastmaster,76.02,34
+12,Brewmaster,74.45,34
+13,Primal Beast,72.57,34
+14,Night Stalker,71.25,34
+15,Phoenix,70.13,34
+16,Nyx Assassin,69.81,34
+17,Sand King,68.91,34
+18,Axe,68.54,34
+19,Doom,67.25,34
+20,Undying,67.14,34
+21,Hoodwink,62.35,34
+22,Techies,62.12,34
+23,Magnus,59.77,34
+24,Abaddon,59.68,34
+25,Spirit Breaker,57.86,34
+26,Batrider,57.69,34
+27,Snapfire,57.56,34
+28,Marci,56.46,34
+29,Earthshaker,56.2,34
+30,Elder Titan,56.04,34
+31,Tusk,55.41,34
+32,Windranger,51.48,34
+33,Weaver,50.33,34
+34,Bounty Hunter,49.63,34
+35,Venomancer,49.5,34
+36,Enchantress,49.06,34
+37,Dragon Knight,48.72,34
+38,Necrophos,48.05,34
+39,Legion Commander,47.52,34
+40,Mirana,47.26,34
+41,Broodmother,45.43,34
+42,Dark Willow,44.33,34
+44,Earth Spirit,43.51,34
+45,Pudge,43.46,34
+46,Tiny,42.05,34
+48,Riki,38.23,34
+49,Nature's Prophet,37.64,34
+51,Pugna,37.01,34
+55,Skywrath Mage,35.2,34
+60,Enigma,33.37,34
+62,Lone Druid,30.98,34

@@ -1,0 +1,86 @@
+Storm Spirit	91.92
+Shadow Fiend	90.53
+Tinker	89.42
+Templar Assassin	87.90
+Invoker	81.90
+Outworld Destroyer	79.45
+Void Spirit	75.99
+Ember Spirit	72.76
+Queen of Pain	72.35
+Puck	70.73
+Death Prophet	65.02
+Meepo	64.69
+Zeus	64.29
+Arc Warden	63.58
+Sniper	54.30
+Viper	52.00
+Alchemist	50.92
+Lina	46.44
+Huskar	45.50
+Broodmother	43.67
+Leshrac	43.01
+Kunkka	42.81
+Visage	40.16
+Razor	37.18
+Clinkz	36.25
+Windranger	34.52
+Dragon Knight	33.47
+Pugna	32.78
+Medusa	31.63
+Necrophos	29.04
+Monkey King	28.17
+Morphling	27.68
+Tiny	26.10
+Skywrath Mage	25.70
+Magnus	25.27
+Lone Druid	24.82
+Batrider	23.08
+Pudge	19.96
+Silencer	19.70
+Mirana	19.70
+Bloodseeker	18.00
+Bounty Hunter	17.79
+Riki	16.57
+Earth Spirit	16.29
+Drow Ranger	15.39
+Marci	13.93
+Phantom Assassin	13.28
+Pangolier	13.15
+Naga Siren	12.83
+Gyrocopter	12.72
+Brewmaster	12.23
+Timbersaw	11.25
+Lycan	10.71
+Tusk	10.69
+Io	10.68
+Night Stalker	9.84
+Hoodwink	9.80
+Weaver	9.53
+Primal Beast	9.50
+Nyx Assassin	8.78
+Venomancer	8.72
+Earthshaker	8.63
+Troll Warlord	8.55
+Rubick	7.95
+Dark Willow	7.54
+Dawnbreaker	7.32
+Legion Commander	7.02
+Winter Wyvern	6.94
+Mars	6.75
+Spirit Breaker	6.72
+Shadow Demon	6.64
+Techies	6.63
+Nature's Prophet	6.43
+Vengeful Spirit	6.20
+Ursa	6.10
+Luna	5.97
+Lion	5.96
+Ogre Magi	5.84
+Enchantress	5.82
+Snapfire	5.78
+Doom	5.66
+Phantom Lancer	5.53
+Keeper of the Light	5.53
+Elder Titan	5.39
+Bane	5.30
+Sand King	5.10

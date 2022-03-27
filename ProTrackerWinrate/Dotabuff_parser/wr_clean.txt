@@ -1,0 +1,123 @@
+Tiny	54.38	7.25
+Lone Druid	56.78	2.72
+Meepo	57.66	2.06
+Primal Beast	42.93	18.54
+Undying	56.52	7.08
+Keeper of the Light	50.70	3.02
+Pugna	52.69	6.93
+Lycan	53.20	0.96
+Huskar	57.32	10.99
+Leshrac	51.76	2.69
+Chen	51.60	1.95
+Enchantress	49.97	3.37
+Visage	54.02	1.29
+Shadow Demon	50.13	2.58
+Pangolier	49.82	3.75
+Alchemist	51.48	3.60
+Chaos Knight	54.11	6.76
+Invoker	50.90	15.73
+Beastmaster	52.18	1.15
+Riki	54.84	7.22
+Vengeful Spirit	52.84	5.46
+Legion Commander	54.36	16.52
+Venomancer	54.13	8.07
+Bounty Hunter	51.27	8.61
+Silencer	55.28	14.88
+Luna	51.92	8.64
+Sniper	53.15	19.43
+Dragon Knight	49.63	4.36
+Crystal Maiden	51.71	10.55
+Tusk	48.27	6.38
+Skywrath Mage	53.72	11.52
+Mars	48.80	8.81
+Shadow Shaman	53.04	13.29
+Shadow Fiend	50.18	11.29
+Death Prophet	50.65	3.28
+Necrophos	53.80	12.46
+Warlock	52.43	2.93
+Gyrocopter	48.46	4.20
+Nature's Prophet	44.06	5.02
+Doom	45.86	4.34
+Clockwerk	50.37	3.66
+Mirana	52.14	12.17
+Sand King	53.31	7.61
+Oracle	49.12	2.94
+Juggernaut	52.45	19.00
+Timbersaw	47.97	4.70
+Templar Assassin	49.53	6.39
+Razor	49.36	4.55
+Windranger	49.39	13.09
+Winter Wyvern	50.28	3.56
+Hoodwink	50.67	9.31
+Dawnbreaker	50.60	3.48
+Bloodseeker	50.71	5.20
+Ember Spirit	46.74	8.46
+Sven	46.42	5.61
+Phoenix	48.00	2.55
+Lich	50.34	7.29
+Medusa	52.79	9.01
+Axe	51.28	16.62
+Void Spirit	51.16	7.74
+Lifestealer	52.04	8.79
+Arc Warden	51.74	2.50
+Rubick	46.11	19.60
+Witch Doctor	49.78	11.22
+Clinkz	48.98	3.23
+Night Stalker	52.72	4.59
+Earthshaker	50.46	11.38
+Underlord	52.44	3.78
+Wraith King	54.05	13.78
+Ogre Magi	53.47	21.20
+Tidehunter	49.43	6.19
+Drow Ranger	53.08	16.86
+Viper	48.78	9.05
+Slardar	49.28	6.17
+Centaur Warrunner	52.53	4.90
+Kunkka	49.06	8.82
+Bane	50.85	2.88
+Grimstroke	49.29	7.81
+Treant Protector	51.39	6.02
+Broodmother	45.94	1.00
+Nyx Assassin	49.96	3.67
+Snapfire	46.91	6.61
+Ursa	51.20	9.57
+Outworld Destroyer	51.76	9.99
+Jakiro	53.75	14.20
+Earth Spirit	47.83	3.71
+Storm Spirit	46.36	11.35
+Elder Titan	47.81	0.80
+Lion	46.68	21.41
+Ancient Apparition	51.34	6.02
+Monkey King	45.59	10.98
+Faceless Void	46.95	11.40
+Phantom Assassin	49.56	19.41
+Slark	48.48	14.26
+Abaddon	50.67	3.80
+Spectre	49.35	6.20
+Magnus	46.06	6.72
+Weaver	50.11	10.06
+Disruptor	50.49	8.58
+Dark Seer	50.45	1.98
+Phantom Lancer	49.05	9.07
+Lina	43.80	9.31
+Omniknight	51.16	4.54
+Anti-Mage	49.53	13.65
+Terrorblade	43.65	2.22
+Enigma	51.23	4.10
+Troll Warlord	48.38	4.71
+Dazzle	51.24	12.55
+Io	49.32	3.14
+Bristleback	49.26	11.10
+Dark Willow	47.44	5.81
+Queen of Pain	47.75	12.74
+Puck	45.32	7.90
+Spirit Breaker	49.22	15.68
+Marci	47.96	8.73
+Batrider	43.38	5.76
+Morphling	44.91	6.47
+Naga Siren	47.95	2.25
+Brewmaster	47.92	2.84
+Pudge	46.05	28.44
+Techies	41.63	16.22
+Zeus	47.00	13.69
+Tinker	44.94	6.02
